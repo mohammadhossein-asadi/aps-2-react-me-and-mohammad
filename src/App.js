@@ -1,47 +1,15 @@
 import "./App.css";
-import { v4 as uuiv4 } from "uuid";
+import Logo from "./components/Logo";
+import BestPokemon from "./components/BestPokemon";
+import CaughtPokemon from "./components/CaughtPokemon";
 
 function App() {
   return (
     <div>
-      <Logo />
-      <BestPokemon />
-      <CaughtPokemon />
+      <Logo appName="Mohammadhossein" />
+      <BestPokemon abilities={["Anticipation", "Adaptability", "Run-Away"]} />
+      <CaughtPokemon date={new Date().toLocaleDateString()} />
       {/* <Text /> */}
-    </div>
-  );
-}
-
-function Logo() {
-  const appName = "John";
-  return (
-    <header>
-      <div>
-        <h1>Welcome to the {appName}'s Pokedex</h1>
-        <img
-          src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png"
-          alt="bird"
-        />
-      </div>
-    </header>
-  );
-}
-
-function CaughtPokemon() {
-  const date = new Date().toLocaleDateString();
-  return <p>Caught 0 Pokemon on {date}</p>;
-}
-
-function BestPokemon() {
-  const abilities = ["Anticipation", "Adaptability", "Run-Away"];
-  return (
-    <div>
-      <p>My favorite Pokemon is Squirtle</p>
-      <ul>
-        {abilities.map((ability) => (
-          <li key={uuiv4()}>{ability}</li>
-        ))}
-      </ul>
     </div>
   );
 }
