@@ -1,24 +1,23 @@
 import "./App.css";
-
-//# Quiz 1
+import { v4 as uuiv4 } from "uuid";
 
 function App() {
   return (
     <div>
       <Logo />
       <BestPokemon />
-      <Text />
+      <CaughtPokemon />
+      {/* <Text /> */}
     </div>
   );
 }
 
-//# Quiz 2
-
 function Logo() {
+  const appName = "John";
   return (
     <header>
       <div>
-        <h1>Welcome to the pokedex</h1>
+        <h1>Welcome to the {appName}'s Pokedex</h1>
         <img
           src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png"
           alt="bird"
@@ -28,18 +27,33 @@ function Logo() {
   );
 }
 
+function CaughtPokemon() {
+  const date = new Date().toLocaleDateString();
+  return <p>Caught 0 Pokemon on {date}</p>;
+}
+
 function BestPokemon() {
-  return <p>My favorite Pokemon is Squirtle</p>;
+  const abilities = ["Anticipation", "Adaptability", "Run-Away"];
+  return (
+    <div>
+      <p>My favorite Pokemon is Squirtle</p>
+      <ul>
+        {abilities.map((ability) => (
+          <li key={uuiv4()}>{ability}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 // # Arrow function
-const Text = () => {
-  return (
-    <div>
-      <h1>hello my friends</h1>
-    </div>
-  );
-};
+// const Text = () => {
+//   return (
+//     <div>
+//       <h1>hello my friends</h1>
+//     </div>
+//   );
+// };
 
 // const Text = () => (
 //   <div>
